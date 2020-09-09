@@ -2,11 +2,7 @@
 package main
 
 import (
-	"os"
-	"reflect"
 	"testing"
-
-	"github.com/hgsgtk/babytesting/internal/testdeps"
 	// ref: https://github.com/golang/go/blob/bb998747d6c5213e3a366936c482e149dce62720/src/cmd/go/internal/load/test.go#L616
 	// Todo import path
 	//{{if .ImportTest}}
@@ -98,11 +94,11 @@ func main() {
 	//	CoveredPackages: {{printf "%q" .Covered}},
 	//})
 	//{{end}}
-	m := testing.MainStart(testdeps.TestDeps{}, tests, benchmarks, examples)
+	//m := testing.MainStart(testdeps.TestDeps{}, tests, benchmarks, examples)
 	//{{with .TestMain}}
 	//{{.Package}}.{{.Name}}(m)
 	// Fixme only support TestMain
-	os.Exit(int(reflect.ValueOf(m).Elem().FieldByName("exitCode").Int()))
+	//os.Exit(int(reflect.ValueOf(m).Elem().FieldByName("exitCode").Int()))
 	//{{else}}
 	//os.Exit(m.Run())
 	//{{end}}
